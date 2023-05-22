@@ -121,3 +121,4 @@ console.log(Object.values(cristopher));
 delete cristopher.nombre;
 console.log(Object.keys(cristopher));
 console.log(cristopher);
+
