@@ -1,0 +1,125 @@
+alalalalalalla
+// 01-javascript
+// 01-variables.js
+
+// Mutables e Inmutables
+// Mutables (re asginables)
+var numeroUno = 1;
+let numeroDos = 2;
+numeroUno = 12;
+numeroDos = 8;
+numeroUno = false;
+numeroDos = true;
+
+// Inmutables (no se pueden reasignar)
+const configuracionArchivos = 'PDF';
+// configuracionArchivos = 'XML';
+// vamos a preferir CONST > LET > VAR (mejor no usar)
+
+// Tipos de vvariables (primitivas)
+const numero = 1; //number
+const sueldo = 1.2; //number
+const texto = 'Cristopher'; //String
+const apellidos = "Perez"; //String
+const casado = true; //boolean
+const hijos = null; //object
+const zapatos = undefined; // undefined;
+
+console.log(typeof numero);
+console.log(typeof sueldo);
+console.log(typeof texto);
+console.log(typeof apellidos);
+console.log(typeof casado);
+console.log(typeof hijos);
+console.log(typeof zapatos);
+
+//Truty y Falsy
+if(true){
+    console.log('Es verdadero');
+}else{
+    console.log('Es falso');
+}
+
+if(""){//string vacío
+    console.log('Es verdadero');
+}else{
+    console.log('Es falso'); // FALSY
+}
+
+if("Cristopher"){//string vacío
+    console.log('Es verdadero'); // TRUTY
+}else{
+    console.log('Es falso');
+}
+//--------------CON NÚMEROS--------------
+if(-1){
+    console.log('Es verdadero'); //TRUTY
+}else{
+    console.log('Es falso');
+}
+
+if(0){
+    console.log('Es verdadero');
+}else{
+    console.log('Es falso'); //FALSY
+}
+
+if(1){
+    console.log('Es verdadero'); //TRUTY
+}else{
+    console.log('Es falso');
+}
+
+//--------------OTROS--------------
+if(null){
+    console.log('Es verdadero');
+}else{
+    console.log('Es falso'); //FALSY
+}
+
+if(undefined){
+    console.log('Es verdadero');
+}else{
+    console.log('Es falso'); //FALSY
+}
+
+//--------------OBJETOS--------------
+const cristopher = {
+    "nombre": "Cristopher",
+    'apellido': 'Perez',
+    edad: 22,
+    hujos: null,
+    casado: true,
+    zapatos: undefined,
+    ropa: {
+        color: 'plomo',
+        talla: 40,
+    },
+    mascotas: ['Cache', 'Pequi', 'Pandu'],
+};
+console.log(cristopher);
+// Acceder a las propuedades
+cristopher.nombre // "Cristopher"
+cristopher.apellido // "Perez"
+cristopher["nombre"]; // "Cristopher"
+// Modificar valores (el objeto es constante, sus propiedades no
+cristopher.nombre = "Santiago";
+cristopher["nombre"] = "Cristopher";
+// Crear atributos
+cristopher.sueldo; // undefined
+console.log(cristopher.sueldo); // undefined
+cristopher.sueldo = 1.2;
+console.log(cristopher.sueldo); // 1.2
+cristopher["gastos"] = 0.8;
+console.log(cristopher.gastos);
+console.log(cristopher);
+// Eliminar propiedades
+cristopher.nombre = undefined;
+console.log(cristopher);
+console.log(Object.keys(cristopher));
+console.log(Object.values(cristopher));
+// eliminación definitiva
+delete cristopher.nombre;
+console.log(Object.keys(cristopher));
+console.log(cristopher);
+
