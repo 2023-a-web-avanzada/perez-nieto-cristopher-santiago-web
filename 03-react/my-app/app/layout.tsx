@@ -1,5 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import React from "react";
+import C_menuComponent from "@/app/componentes/c_menu_component";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <C_menuComponent/>
+      {/*<C_menuComponent></C_menuComponent>*/}
+      <footer>Footer</footer>
+      {children}
+
+      </body>
     </html>
   )
 }
