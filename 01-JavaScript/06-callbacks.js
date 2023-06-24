@@ -31,12 +31,4 @@ console.log('TERCERO');
 // 3) Crear un nuevo archivo llamado 06-nuevo-archivo.txt
 // con el contenido de los otros dos archivos.
 
-const nuevoContenido = 1;
-fs.writeFile(
-    './06-nuevo-archivo.txt',
-    nuevoContenido,
-    (errorExritura) => {
-
-    }
-);
 
