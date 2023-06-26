@@ -2,7 +2,7 @@
 
 import {Moneda} from "@/app/e_custom_hool/interfaces/moneda";
 
-const MonedasConst: Moneda[] = [
+export const MonedasConst: Moneda[] = [
     {
         id: 'USD', nombre: 'Dolar Estados Unidos'
     },
