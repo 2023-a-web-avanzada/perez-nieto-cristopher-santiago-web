@@ -29,22 +29,6 @@ function escribirArchivo(path, contenido){
     })
 }
 
-/*leerArchivo('06-ejemplo.txt')
-    .then((data)=>{
-        console.log(data);
-    })
-    .catch((error) => {
-        console.log('Error: ', error)
-    })
-    .finally(()=>{
-        console.log('');
-    });*/
-
-/*escribirArchivo('08-prueba.txt', 'hola a todos')
-    .then((data) => {
-        console.log(data);
-    })*/
-
 function ejercicio(pathArchivo1, pathArchivo2, pathArchivoNuevo){
     let contenidoTotal = '';
     leerArchivo(pathArchivo1)

@@ -1,0 +1,9 @@
+1,25/8,Bad Bunny,25/06/2020,3,true
+2,Yonaguni,Bad,25/07/2021,3,true
+2,Yonaguni,Bad,25/07/2021,3,true
+2,Yonaguni,Bad,25/07/2021,3,true
+2,Yonaguni,Bad,25/07/2021,3,true
+2,Yonaguni,Bad,25/07/2021,3,true
+2,Yonaguni,Bad,25/07/2021,3,true
+2,Yonaguni,Bad,25/07/2021,3,true
+2,Yonaguni,Bad,25/07/2021,3,true
