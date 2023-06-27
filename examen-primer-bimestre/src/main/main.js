@@ -43,12 +43,12 @@ async function menu() {
             if (opcion.opcion === opcionesMenu[1]) {
                 await album.crearAlbum()
                     .then(async album => {
-                        let todoContenido = '';
+                        /*let todoContenido = '';
                         await fileManager.leer(path).then(
                             data => {
                                 todoContenido = todoContenido + data;
                             }
-                        )
+                        )*/
                         let numCanciones;
                         numCanciones = await inquirer.prompt([{
                             type: 'input',
@@ -184,14 +184,14 @@ async function menu() {
                     console.log('Canción eliminada correctamente');
                 }
             }
-
+            // Eliminar
             if (opcion.opcion === opcionesMenu[3]) {
                 await album.eliminarAlbum().then();
             }
 
         } while (opcion.opcion !== opcionesMenu[4])
         {
-            console.log("SALIR DEL SPOTIFY TRUCHO1");
+            console.log("SALIR DEL SPOTIFY TRUCHOS");
         }
     } catch (error) {
         console.error(error);

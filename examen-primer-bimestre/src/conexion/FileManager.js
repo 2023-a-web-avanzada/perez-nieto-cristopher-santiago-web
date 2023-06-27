@@ -18,7 +18,7 @@ export class FileManager {
                         if( contenidoArchivo === ''){
                             resolve('')
                         }
-                        resolve(JSON.parse(contenidoArchivo))
+                        resolve(JSON.parse(contenidoArchivo));
                     }
                 );
             }
