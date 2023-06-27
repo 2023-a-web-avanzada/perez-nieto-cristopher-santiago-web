@@ -177,7 +177,7 @@ async function menu() {
             }
 
             if (opcion.opcion === opcionesMenu[3]) {
-                await album.eliminar().then();
+                await album.eliminarAlbum().then();
             }
 
         } while (opcion.opcion !== opcionesMenu[4])

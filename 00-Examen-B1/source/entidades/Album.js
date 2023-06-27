@@ -49,7 +49,7 @@ export class Album {
         return album;
     }
 
-    async editarAlbum() {
+    /*async editarAlbum() {
         let albumEditado = new Album();
         try {
             await inquirer.prompt([
@@ -74,7 +74,7 @@ export class Album {
         }
         return albumEditado;
     }
-
+*/
     async eliminarAlbum() {
         let nombre
         const albumes = [];
