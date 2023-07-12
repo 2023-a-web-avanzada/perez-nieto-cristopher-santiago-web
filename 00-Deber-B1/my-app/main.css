@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .card {
+        background-color: #050505;
+        border-radius: 25px;
+        color: aqua;
+        padding: theme('spacing.6');
+        box-shadow: theme('boxShadow.xl');
+    }
+    .loquesea {
+        color: blue;
+    }
+}
