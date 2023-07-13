@@ -1,3 +1,4 @@
+'use client'
 import {useEffect, useState} from "react";
 
 export type PropiedadesComponente = {
@@ -5,7 +6,7 @@ export type PropiedadesComponente = {
 }
 export default function Index(props: PropiedadesComponente) {
     const {
-        colorIteraciones = "bg-white",
+        colorIteraciones = "bg-white text-black",
         mode = "M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
     } = props;
 
@@ -27,53 +28,54 @@ export default function Index(props: PropiedadesComponente) {
     }
 
     return (
-        <main className="flex max-h-0.025 flex-col justify-between bg-white">
+        <main className="flex max-h-0.025 flex-col justify-between bg-white border-none">
             <div className={colorIteracionesLocal}>
+                <br/>
                 <header>
-                    <div className="flex flex-row border-solid border-2 border-red-500">
-                        <div className="basis-1/5 border-solid border-2 border-black">
+                    <div className="flex flex-row">
+                        <div className="basis">
                             <a href="../">
-                                <img className="mx-auto" src="/images/KFC_Logo.svg.png" alt="Logo de KFC" width="100"/>
+                                <img className="ml-7" src="/images/kfclogo.png" alt="Logo de KFC" width="120"/>
                             </a>
                         </div>
-                        <div className="basis-3/5 border-solid border-2 border-black">
-                            <div className="flex flex-row gap-4">
-                                <div className="border-solid border-2 border-purple-500">
-                                    <button className="rounded-none border-solid border-2 border-green-600">
+                        <div className="basis-4/6 my-auto ml-10">
+                            <div className="flex flex-row gap-7 font-bold text-sm/[20px]">
+                                <div>
+                                    <button className="rounded-none">
                                         <a href="/menu">
                                             MENÚ
                                         </a>
                                     </button>
                                 </div>
-                                <div className="border-solid border-2 border-purple-500">
+                                <div>
                                     <button
-                                        className="rounded-none border-solid border-2 border-green-600">PROMOCIONES
+                                        className="rounded-none">PROMOCIONES
                                     </button>
                                 </div>
-                                <div className="border-solid border-2 border-purple-500">
-                                    <button className="rounded-none border-solid border-2 border-green-600">SANDUCHES Y
+                                <div>
+                                    <button className="rounded-none">SANDUCHES Y
                                         SNACKS
                                     </button>
                                 </div>
-                                <div className="border-solid border-2 border-purple-500">
-                                    <button className="rounded-none border-solid border-2 border-green-600">NUESTRAS
+                                <div>
+                                    <button className="rounded-none">NUESTRAS
                                         TIENDAS
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <div className="basis-1/5 border-solid border-2 border-black">
+                        <div className="basis-1/6 my-auto">
                             <div className="flex flex-row-reverse gap-3">
                                 <div className="basis-1/10">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-6 h-6" onClick={
                                         (event) => {
                                             //setOrdenLocal(ordenLocal + 1);
-                                            if (colorIteracionesLocal == "bg-white") {
-                                                setColorIteracionesLocal('bg-gray-400');
+                                            if (colorIteracionesLocal == "bg-white text-black") {
+                                                setColorIteracionesLocal('bg-gray-400 text-white');
                                                 setModeLocal('M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z');
                                             } else {
-                                                setColorIteracionesLocal('bg-white');
+                                                setColorIteracionesLocal('bg-white text-black');
                                                 setModeLocal('M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z');
                                             }
                                         }
@@ -114,43 +116,120 @@ export default function Index(props: PropiedadesComponente) {
                         </div>
                     </div>
                     <br/>
-                    <br/>
                 </header>
-                <section>
+                <section className={colorIteracionesLocal}>
                     <div
-                        className="container mx-auto flex flex-row items-center border-solid border-2 border-red-500 gap-4 w-100">
-                        <div className="basis-1/3 text-right">
+                        className="container mx-auto flex flex-row items-center gap-0">
+                        <div className="basis-1/10 text-right font-bold">
                             MENÚ
                         </div>
-                        <div className="basis-1/2 border-solid border-2 border-black">
+                        <div className="ml-3 basis-10/12 border-solid border-b-2 border-black"></div>
+                        <div className="basis-2/12 border-solid border-b-2 border-black"></div>
+                    </div>
+                </section>
+                <br/><br/>
+                <section>
+                    <div className="grid grid-cols-6 gap-4 container mx-auto pl-8 pr-8 text-sm/[20px]">
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/hambreDePromos.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                HAMBRE DE PROMOS
+                            </p>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/bbq.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                KENTUCKY CRISPY BBQ
+                            </p>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/festines.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                FESTINES
+                            </p>
 
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/presassolas.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                PRESAS SOLAS
+                            </p>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/paracompartir.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                PARA COMPARTIR 2 Y 3 PERSONAS
+                            </p>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/boxes.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                BOXES
+                            </p>
+                        </div>
+
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/combos.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                COMBOS
+                            </p>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/chicky.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                CHICKY LUNCH
+                            </p>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/popcorn.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                POP CORN Y STRIPS
+                            </p>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/postres.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                POSTRES Y HELADOS
+                            </p>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="container p-10">
+                                <img src="/images/complementos.webp" alt="Hambre de Promos"/>
+                            </div>
+                            <p className="text-center font-bold p-3">
+                                COMPLEMENTOS Y BEBIDAS
+                            </p>
                         </div>
                     </div>
                 </section>
-                <br/><br/><br/><br/>
-                <section>
-                    <div className="grid grid-cols-6 gap-4 border-solid border-2 border-red-500 container mx-auto">
-                        <div className="border-solid border-2 border-black rounded-b">01</div>
-                        <div className="border-solid border-2 border-black rounded-b">02</div>
-                        <div className="border-solid border-2 border-black rounded-b">03</div>
-                        <div className="border-solid border-2 border-black rounded-b">04</div>
-                        <div className="border-solid border-2 border-black rounded-b">04</div>
-                        <div className="border-solid border-2 border-black rounded-b">06</div>
-
-                        <div className="border-solid border-2 border-black rounded-b">01</div>
-                        <div className="border-solid border-2 border-black rounded-b">02</div>
-                        <div className="border-solid border-2 border-black rounded-b">03</div>
-                        <div className="border-solid border-2 border-black rounded-b">04</div>
-                        <div className="border-solid border-2 border-black rounded-b">04</div>
-                        <div className="border-solid border-2 border-black rounded-b">06</div>
-                    </div>
-                </section>
-                <br/><br/><br/><br/>
+                <br/>
                 <footer style={estilosFooter}>
                     <br/>
+                    <div className="flex flex-row gap-7 container mx-auto">
+                        <img src="/images/coronel.png" alt="Logo de KFC"/>
+                    </div>
                     <div className="flex flex-row gap-8 container mx-auto">
-                        <div className="basis-1/4">
-                            <img src="/images/coronel.png" alt="Logo de KFC"/>
+                        <div className="basis-2/5">
                             <br/>
                             <p className="font-bold">KFC ECUADOR - Compra tu combo en línea</p>
                             <br/>
@@ -160,8 +239,7 @@ export default function Index(props: PropiedadesComponente) {
                                 cercano a ti.
                             </p>
                         </div>
-                        <div className="basis-1/4">
-                            <img className={imagenBlanca} src="/images/coronel.png" alt="Logo de KFC"/>
+                        <div className="basis-1/5">
                             <br/>
                             <p className="font-bold">Contáctanos</p>
                             <br/>
@@ -183,15 +261,27 @@ export default function Index(props: PropiedadesComponente) {
                                 </p>
                             </div>
                         </div>
-                        <div className="basis-1/4 ">
-                            <img className={imagenBlanca} src="/images/coronel.png" alt="Logo de KFC"/>
+                        <div className="basis-1/5 ">
                             <br/>
                             <p className="font-bold">Políticas</p>
-                        </div>
-                        <div className="basis-1/4">
-                            <img className={imagenBlanca} src="/images/coronel.png" alt="Logo de KFC"/>
                             <br/>
-                            <p className="font-bold">Descarga nuestra APP</p>
+                            <p className="text-xs">
+                                Términos y Condiciones: Garantía de 30 minutos ó Gratis
+                                Política de Privacidad de Datos
+                            </p>
+                        </div>
+                        <div className="basis-1/5">
+                            <br/>
+                            <p>Descarga nuestra APP</p>
+                            <br/>
+                            <div className="flex flex-row gap-4">
+                                <div className="basis-1/3">
+                                    <img src="/images/appStore.png" alt="Imagen de la App Store"/>
+                                </div>
+                                <div className="basis-1/3">
+                                    <img src="/images/googlePlay.png" alt="Imagen de la App Store"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br/>

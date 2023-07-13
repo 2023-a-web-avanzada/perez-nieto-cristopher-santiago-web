@@ -5,9 +5,11 @@ export type PropiedadesComponente = {
 }
 
 export default function Menu(props: PropiedadesComponente) {
-    const {ordenes= 0,
+    const {
+        ordenes = 0,
         colorIteraciones = "bg-white",
-        mode = "M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"} = props;
+        mode = "M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+    } = props;
 
     // useState
     const [numOrdenesLocal, setNumOrdenesLocal] = useState(
@@ -25,28 +27,58 @@ export default function Menu(props: PropiedadesComponente) {
         console.log('Has agregado un nuevo producto al carrito');
     }, [numOrdenesLocal])
 
+    // estilos
+    const estiloBarra = {
+        backgroundColor: "#E4002B",
+        color: "#fff",
+    }
+    const estiloA = {
+        color: "#E4002B",
+    }
+
     return (
         <main className="flex flex-col justify-between max-h-0.025">
             <div className={colorIteracionesLocal}>
+                <br/>
                 <header className="flex flex-row">
-                    <div className="basis-1/4 border-solid border-2 border-red-500">
+                    <div className="basis-1/4 py-4">
                         <a href="../">
-                            <img className="mx-auto" src="/images/KFC_Logo.svg.png" alt="Logo de KFC" width="100"/>
+                            <img className="ml-7" src="/images/kfclogo.png" alt="Logo de KFC" width="120"/>
                         </a>
                     </div>
-                    <div className="basis-1/2 border-solid border-2 border-red-500">
-                        barra de búsqueda
+                    <div className="basis-1/2 my-auto">
+                        <div className="flex flex-row ml-20">
+                            <div className="basis-2/3 border border-r-0 border-black rounded-l my-auto">
+                                <input className={`w-full ${colorIteracionesLocal}`} type="text" name="" id=""/>
+                            </div>
+                            <div
+                                className="basis-1/10 border-t border-r border-b border-l-0 border-black rounded-r my-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5"
+                                     stroke="currentColor" className="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                    <div className="basis-1/4 border-solid border-2 border-black">
+                    <div className="basis-2/4 my-auto">
                         <div className="flex flex-row justify-center gap-10">
                             <div className="basis-1/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                     stroke-width="1.5"
-                                     stroke="currentColor" className="w-6 h-6 basis-1/3">
-                                    <path fill-rule="evenodd"
-                                          d="M10.5 3A1.501 1.501 0 009 4.5h6A1.5 1.5 0 0013.5 3h-3zm-2.693.178A3 3 0 0110.5 1.5h3a3 3 0 012.694 1.678c.497.042.992.092 1.486.15 1.497.173 2.57 1.46 2.57 2.929V19.5a3 3 0 01-3 3H6.75a3 3 0 01-3-3V6.257c0-1.47 1.073-2.756 2.57-2.93.493-.057.989-.107 1.487-.15z"
-                                          clip-rule="evenodd"/>
-                                </svg>
+                                <div
+                                    className="bg-black rounded text-white flex flex-row text-xs pl-2 pr-2 my-auto gap-3">
+                                    <p className="basis-9/10 my-auto font-bold">
+                                        ¿Tienes un código de descuento?
+                                    </p>
+                                    <div className="basis-1/10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                             className="w-6 h-6">
+                                            <path fill-rule="evenodd"
+                                                  d="M5.25 2.25a3 3 0 00-3 3v4.318a3 3 0 00.879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 005.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 00-2.122-.879H5.25zM6.375 7.5a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z"
+                                                  clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                             <div className="basis-1/10">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -94,66 +126,479 @@ export default function Menu(props: PropiedadesComponente) {
                         </div>
                     </div>
                 </header>
-                <div className="flex flex-row border-solid border-2 border-black">
-                    barra de navegación
+                <div className="flex flex-row bg-color font-bold" style={estiloBarra}>
+                    <div className="px-6 py-3" style={estiloA}>#</div>
+                    <div className="px-7 py-3 border-l border-r">
+                        <button className="rounded-none flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                 className="w-6 h-6">
+                                <path
+                                    d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"/>
+                                <path
+                                    d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"/>
+                            </svg>
+                            <a href="/menu">
+                                <span>MENÚ</span>
+                            </a>
+                        </button>
+                    </div>
+                    <div className="px-7 py-3 border-r">
+                        <button className="flex rounded-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                 className="w-6 h-6">
+                                <path fill-rule="evenodd"
+                                      d="M5.25 2.25a3 3 0 00-3 3v4.318a3 3 0 00.879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 005.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 00-2.122-.879H5.25zM6.375 7.5a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z"
+                                      clip-rule="evenodd"/>
+                            </svg>
+
+                            <a href="/menu">
+                                PROMOCIONES
+                            </a>
+                        </button>
+                    </div>
+                    <div className="px-7 py-3 border-r">
+                        <button className="rounded-none">
+                            <a href="/menu">
+                                SANDUCHES Y SNACKS
+                            </a>
+                        </button>
+                    </div>
+                    <div className="px-5 py-3 border-r">
+                        <button className="rounded-none">
+                            <a href="/menu">
+                                NUESTRAS TIENDAS
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className={colorIteracionesLocal}>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <section className="flex flex-row border-solid border-2 border-black">
-                    <div className="basis-1/4 border-solid border-2 border-red-500">
-                        HAMBRE DE PROMOS
+                <section className="flex flex-row">
+                    <div className="basis-1/4 border-b-2">
+                        <div className="container pt-5">
+                            <img className="mx-auto rounded-full"
+                                 src="/images/hambreDePromos.webp"
+                                 alt="Hambre de Promos" width="50"/>
+                        </div>
+                        <p className="text-center font-bold text-sm/[17px] px-3 pt-1 pb-5">
+                            <span>HAMBRE DE PROMOS</span>
+                        </p>
                     </div>
-                    <div className="basis-1/4 border-solid border-2 border-red-500">
-                        KENTUCKY CRISPY BBQ
+                    <div className="basis-1/4 border-b-2">
+                        <div className="container pt-5">
+                            <img className="mx-auto rounded-full"
+                                 src="/images/bbq.webp"
+                                 alt="Kentucky Crispy BBQ" width="50"/>
+                        </div>
+                        <p className="text-center font-bold text-sm/[17px] px-3 pt-1 pb-5">
+                            <span>KENTUCKY CRISPY BBQ</span>
+                        </p>
                     </div>
-                    <div className="basis-1/4 border-solid border-2 border-red-500">
-                        FESTINES
+                    <div className="basis-1/4 border-b-2">
+                        <div className="container pt-5">
+                            <img className="mx-auto rounded-full"
+                                 src="/images/festines.webp"
+                                 alt="Festines" width="50"/>
+                        </div>
+                        <p className="text-center font-bold text-sm/[17px] px-3 pt-1 pb-5">
+                            <span>FESTINES</span>
+                        </p>
                     </div>
-                    <div className="basis-1/4 border-solid border-2 border-red-500">
-                        PRESAS SOLAS
+                    <div className="basis-1/4 border-b-2">
+                        <div className="container pt-5">
+                            <img className="mx-auto rounded-full"
+                                 src="/images/presassolas.webp"
+                                 alt="Presas Solas" width="50"/>
+                        </div>
+                        <p className="text-center font-bold text-sm/[17px] px-3 pt-1 pb-5">
+                            <span>PRESAS SOLAS</span>
+                        </p>
                     </div>
                 </section>
                 <section>
+                    <br/>
                     <h1>HAMBRE DE PROMOS</h1>
-                    <div className="grid grid-cols-4 gap-4 border-solid border-2 border-red-500 container mx-auto">
-                        <div className="border-solid border-2 border-black rounded-b">
-                            <button className="border border-solild border-black bg-blue-500" onClick={
-                                (event) => {
-                                    setNumOrdenesLocal(numOrdenesLocal + 1);
-                                }
-                            }> Aumentar </button>
+                    <div className="grid grid-cols-4 gap-5 container mx-auto">
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
                         </div>
-                        <div className="border-solid border-2 border-black rounded-b">02</div>
-                        <div className="border-solid border-2 border-black rounded-b">03</div>
-                        <div className="border-solid border-2 border-black rounded-b">04</div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <br/>
                     <h1>KENTUCKY CRISPY BBQ</h1>
-                    <div className="grid grid-cols-4 gap-4 border-solid border-2 border-red-500 container mx-auto">
-                        <div className="border-solid border-2 border-black rounded-b">01</div>
-                        <div className="border-solid border-2 border-black rounded-b">02</div>
-                        <div className="border-solid border-2 border-black rounded-b">03</div>
-                        <div className="border-solid border-2 border-black rounded-b">04</div>
+                    <div className="grid grid-cols-4 gap-5 container mx-auto">
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <br/>
                     <h1>FESTINES</h1>
-                    <div className="grid grid-cols-4 gap-4 border-solid border-2 border-red-500 container mx-auto">
-                        <div className="border-solid border-2 border-black rounded-b">01</div>
-                        <div className="border-solid border-2 border-black rounded-b">02</div>
-                        <div className="border-solid border-2 border-black rounded-b">03</div>
-                        <div className="border-solid border-2 border-black rounded-b">04</div>
+                    <div className="grid grid-cols-4 gap-5 container mx-auto">
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <br/>
                     <h1>PRESAS SOLAS</h1>
-                    <div className="grid grid-cols-4 gap-4 border-solid border-2 border-red-500 container mx-auto">
-                        <div className="border-solid border-2 border-black rounded-b">01</div>
-                        <div className="border-solid border-2 border-black rounded-b">02</div>
-                        <div className="border-solid border-2 border-black rounded-b">03</div>
-                        <div className="border-solid border-2 border-black rounded-b">04</div>
+                    <div className="grid grid-cols-4 gap-5 container mx-auto">
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="shadow-md shadow-gray-300">
+                            <div className="mx-5 mb-5">
+                                <div className="py-1">
+                                    <img className="mx-auto"
+                                         src="/images/hambre1.webp"
+                                         alt="Hambre de Promos"
+                                         width="180"/>
+                                </div>
+                                <p className="text-center mt-2">
+                                    SNACK BOX POPCORN COLA
+                                </p>
+                                <p className="text-center">
+                                    $2.99
+                                </p>
+                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
+                                    (event) => {
+                                        setNumOrdenesLocal(numOrdenesLocal + 1);
+                                    }
+                                }>
+                                    <button>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <br/>
