@@ -7,7 +7,7 @@ export type PropiedadesComponente = {
 export default function Menu(props: PropiedadesComponente) {
     const {
         ordenes = 0,
-        colorIteraciones = "bg-white",
+        colorIteraciones = "bg-white text-black",
         mode = "M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
     } = props;
 
@@ -39,7 +39,6 @@ export default function Menu(props: PropiedadesComponente) {
     return (
         <main className="flex flex-col justify-between max-h-0.025">
             <div className={colorIteracionesLocal}>
-                <br/>
                 <header className="flex flex-row">
                     <div className="basis-1/4 py-4">
                         <a href="../">
@@ -110,11 +109,11 @@ export default function Menu(props: PropiedadesComponente) {
                                      stroke-width="1.5" stroke="currentColor" className="w-6 h-6" onClick={
                                     (event) => {
                                         //setOrdenLocal(ordenLocal + 1);
-                                        if (colorIteracionesLocal == "bg-white") {
-                                            setColorIteracionesLocal('bg-gray-400');
+                                        if (colorIteracionesLocal == "bg-white text-black") {
+                                            setColorIteracionesLocal('bg-gray-400 text-white');
                                             setModeLocal('M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z');
                                         } else {
-                                            setColorIteracionesLocal('bg-white');
+                                            setColorIteracionesLocal('bg-white text-black');
                                             setModeLocal('M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z');
                                         }
                                     }
@@ -217,9 +216,11 @@ export default function Menu(props: PropiedadesComponente) {
                 </section>
                 <section>
                     <br/>
-                    <h1>HAMBRE DE PROMOS</h1>
+                    <div className="container mx-auto">
+                        <h1 className="font-bold text-2xl/[50px]">HAMBRE DE PROMOS</h1>
+                    </div>
                     <div className="grid grid-cols-4 gap-5 container mx-auto">
-                        <div className="shadow-md shadow-gray-300">
+                        <div className="shadow-lg shadow-gray-300">
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
@@ -242,19 +243,19 @@ export default function Menu(props: PropiedadesComponente) {
                                 </div>
                             </div>
                         </div>
-                        <div className="shadow-md shadow-gray-300">
+                        <div className="shadow-lg shadow-gray-300">
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
+                                         src="/images/hambre2.webp"
                                          alt="Hambre de Promos"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    COMBO ECONÓMICO
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $3.75
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -265,19 +266,19 @@ export default function Menu(props: PropiedadesComponente) {
                                 </div>
                             </div>
                         </div>
-                        <div className="shadow-md shadow-gray-300">
-                            <div className="mx-5 mb-5">
+                        <div className="shadow-lg shadow-gray-300">
+                            <div className="mx-5 b-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
+                                         src="/images/hambre3.webp"
                                          alt="Hambre de Promos"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    MEGA WOW BOX POPCORN
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $5.50
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -288,19 +289,19 @@ export default function Menu(props: PropiedadesComponente) {
                                 </div>
                             </div>
                         </div>
-                        <div className="shadow-md shadow-gray-300">
+                        <div className="shadow-lg shadow-gray-300">
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
+                                         src="/images/hambre4.webp"
                                          alt="Hambre de Promos"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    BIG BOX ULTRA
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $6.50
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -313,21 +314,23 @@ export default function Menu(props: PropiedadesComponente) {
                         </div>
                     </div>
                     <br/>
-                    <h1>KENTUCKY CRISPY BBQ</h1>
+                    <div className="container mx-auto">
+                        <h1 className="font-bold text-2xl/[50px]">KENTUCKY CRISPY BBQ</h1>
+                    </div>
                     <div className="grid grid-cols-4 gap-5 container mx-auto">
                         <div className="shadow-md shadow-gray-300">
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
+                                         src="/images/bbq1.webp"
                                          alt="Hambre de Promos"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    KENTUCKY CRISPY BBQ
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $4.50
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -342,15 +345,15 @@ export default function Menu(props: PropiedadesComponente) {
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
+                                         src="/images/bbq2.webp"
                                          alt="Hambre de Promos"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    COMBO KENTUCKY CRISPY BBQ
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $6.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -365,15 +368,15 @@ export default function Menu(props: PropiedadesComponente) {
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
+                                         src="/images/bb3.webp"
                                          alt="Hambre de Promos"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    BIG BOX KENTUCKY
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $7.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -388,15 +391,15 @@ export default function Menu(props: PropiedadesComponente) {
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
+                                         src="/images/bbq4.webp"
                                          alt="Hambre de Promos"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    PARTE Y COMPARTE KENTUCKY
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $14.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -409,21 +412,23 @@ export default function Menu(props: PropiedadesComponente) {
                         </div>
                     </div>
                     <br/>
-                    <h1>FESTINES</h1>
+                    <div className="container mx-auto">
+                        <h1 className="font-bold text-2xl/[50px]">FESTINES</h1>
+                    </div>
                     <div className="grid grid-cols-4 gap-5 container mx-auto">
                         <div className="shadow-md shadow-gray-300">
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
-                                         alt="Hambre de Promos"
+                                         src="/images/festines1.webp"
+                                         alt="Festines sin igual"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    FESTINES SIN IGUAL
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $17.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -438,15 +443,15 @@ export default function Menu(props: PropiedadesComponente) {
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
-                                         alt="Hambre de Promos"
+                                         src="/images/festines2.webp"
+                                         alt="Festin alitas"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    FESTIN ALITAS
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $18.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -461,15 +466,15 @@ export default function Menu(props: PropiedadesComponente) {
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
-                                         alt="Hambre de Promos"
+                                         src="/images/festines3.webp"
+                                         alt="Festin familiar 1"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    FESTIN FAMILIAR 1
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $18.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -484,15 +489,15 @@ export default function Menu(props: PropiedadesComponente) {
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
-                                         alt="Hambre de Promos"
+                                         src="/images/festines4.webp"
+                                         alt="Mega festin 8 presas"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    MEGA FESTÍN 8 PRESAS
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $18.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -505,21 +510,23 @@ export default function Menu(props: PropiedadesComponente) {
                         </div>
                     </div>
                     <br/>
-                    <h1>PRESAS SOLAS</h1>
+                    <div className="container mx-auto">
+                        <h1 className="font-bold text-2xl/[50px]">PRESAS SOLAS</h1>
+                    </div>
                     <div className="grid grid-cols-4 gap-5 container mx-auto">
                         <div className="shadow-md shadow-gray-300">
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
-                                         alt="Hambre de Promos"
+                                         src="/images/presassolas1.webp"
+                                         alt="14 presas"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    14 PRESAS
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $21.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -534,15 +541,15 @@ export default function Menu(props: PropiedadesComponente) {
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
-                                         alt="Hambre de Promos"
+                                         src="/images/presassolas2.webp"
+                                         alt="10 presas KFC"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    10 PRESAS KFC
                                 </p>
                                 <p className="text-center">
-                                    $2.99
+                                    $15.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -557,38 +564,15 @@ export default function Menu(props: PropiedadesComponente) {
                             <div className="mx-5 mb-5">
                                 <div className="py-1">
                                     <img className="mx-auto"
-                                         src="/images/hambre1.webp"
-                                         alt="Hambre de Promos"
+                                         src="/images/presassolas3.webp"
+                                         alt="7 presas"
                                          width="180"/>
                                 </div>
                                 <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
+                                    7 PRESAS
                                 </p>
                                 <p className="text-center">
-                                    $2.99
-                                </p>
-                                <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
-                                    (event) => {
-                                        setNumOrdenesLocal(numOrdenesLocal + 1);
-                                    }
-                                }>
-                                    <button>Agregar</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="shadow-md shadow-gray-300">
-                            <div className="mx-5 mb-5">
-                                <div className="py-1">
-                                    <img className="mx-auto"
-                                         src="/images/hambre1.webp"
-                                         alt="Hambre de Promos"
-                                         width="180"/>
-                                </div>
-                                <p className="text-center mt-2">
-                                    SNACK BOX POPCORN COLA
-                                </p>
-                                <p className="text-center">
-                                    $2.99
+                                    $12.99
                                 </p>
                                 <div className="mx-auto text-center mt-10 py-1.5" style={estiloBarra} onClick={
                                     (event) => {
@@ -605,20 +589,64 @@ export default function Menu(props: PropiedadesComponente) {
                 <br/>
                 <br/>
             </div>
-            <footer className={colorIteracionesLocal}>
-                <div className="flex flex-row border-solid border-2 border-black">
-                    <div className="basis-1/3 border-solid border-2 border-red-500">
-                        <img src="" alt="KFC LOGO"/>
-                        <p>Conoce donde se encuentran las ubicaciones de las tiendas de KFC en Ecuador, utiliza nuestro
+            <footer className={`border-t border-b px-36 ${colorIteracionesLocal}`}>
+                <br/>
+                <div className="container flex flex-row gap-20 mx-auto">
+                    <div className="basis-1/3">
+                        <a href="../">
+                            <img src="/images/kfclogo.png" alt="Logo de KFC" width="65"/>
+                        </a>
+                        <br/>
+                        <p className="font-bold text-xs">Conoce donde se encuentran las ubicaciones de las tiendas de KFC en Ecuador, utiliza nuestro
                             mapa para localizar el local de KFC más cercano a ti.</p>
                     </div>
-                    <div className="basis-1/3 border-solid border-2 border-red-500">
-                        <h2>Contáctanos</h2>
+                    <div className="basis-1/3 font-bold text-xs">
+                        <h1 className="text-sm">Contáctanos</h1>
+                        <br/>
+                        <p>KFC Ecuador,</p>
+                        <br/>
+                        <p className="mb-2">Edificio Belmonte, piso 1</p>
+                        <p className="mb-2">Llámanos: 023920070</p>
+                        <p className="mb-2">Quito, P, Ecuador</p>
+                        <p className="mb-2">kfcadomicilio@kfc.com.ec</p>
+                        <p className="mb-2">Corea 126 y Amazonas</p>
                     </div>
-                    <div className="basis-1/3 border-solid border-2 border-red-500">
-                        <h3>Síguenos</h3>
+                    <div className="basis-1/3 font-bold text-sm">
+                        <h1 className="text-sm">Síguenos</h1>
+                        <br/>
+                        <div className="flex flex-row gap-5">
+                            <div className="basis-1/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 19.28 19.175"
+                                     width="24px" className="spree-icon d-inline-block">
+                                    <path
+                                        d="m369.18 160.127a1.051 1.051 0 0 1 -1.048 1.048h-4.925v-7.439h2.515l.367-2.882h-2.882v-1.834c0-.838.21-1.415 1.415-1.415h1.519v-2.62a17.157 17.157 0 0 0 -2.253-.1 3.5 3.5 0 0 0 -3.72 3.825v2.148h-2.515v2.882h2.515v7.439h-9.221a1.051 1.051 0 0 1 -1.048-1.048v-17.083a1.051 1.051 0 0 1 1.049-1.048h17.132a1.051 1.051 0 0 1 1.048 1.048v17.079z"
+                                        fill="#000" transform="translate(-349.9 -142)"></path>
+                                </svg>
+                            </div>
+                            <div className="basis-1/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 19.646 16.451"
+                                     width="24px" className="spree-icon d-inline-block">
+                                    <path
+                                        d="m883.165 145.014a7.288 7.288 0 0 1 -2.567 1 4.039 4.039 0 0 0 -2.934-1.31 4.093 4.093 0 0 0 -4.034 4.139 5.768 5.768 0 0 0 .1.943 11.344 11.344 0 0 1 -8.278-4.3 4.021 4.021 0 0 0 -.524 2.1 4.364 4.364 0 0 0 1.781 3.458 3.724 3.724 0 0 1 -1.834-.524v.052a4.06 4.06 0 0 0 3.248 4.034 3.377 3.377 0 0 1 -1.048.157 3.223 3.223 0 0 1 -.734-.052 4.11 4.11 0 0 0 3.772 2.881 7.908 7.908 0 0 1 -4.977 1.781 5.694 5.694 0 0 1 -.943-.052 11.283 11.283 0 0 0 6.182 1.834c7.387 0 11.474-6.287 11.474-11.736v-.524a7.793 7.793 0 0 0 1.991-2.148 7.191 7.191 0 0 1 -2.305.629 5.156 5.156 0 0 0 1.63-2.362z"
+                                        fill="#000" transform="translate(-864.2 -144.7)"></path>
+                                </svg>
+                            </div>
+                            <div className="basis-1/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 19.227 19.175"
+                                     width="24px" className="spree-icon d-inline-block">
+                                    <path
+                                        d="m1009.722 142.1h-14.617a2.281 2.281 0 0 0 -2.305 2.253v14.669a2.281 2.281 0 0 0 2.305 2.253h14.617a2.281 2.281 0 0 0 2.305-2.253v-14.669a2.352 2.352 0 0 0 -2.305-2.253zm-3.143 3.039a.581.581 0 0 1 .576-.576h1.781a.581.581 0 0 1 .576.576v1.781a.581.581 0 0 1 -.576.576h-1.781a.581.581 0 0 1 -.576-.576zm-4.191 2.934a3.668 3.668 0 1 1 0 7.335 3.667 3.667 0 1 1 0-7.335zm7.806 10.845a.581.581 0 0 1 -.576.576h-14.408a.582.582 0 0 1 -.576-.576v-9.011h2.41a3.765 3.765 0 0 0 -.419 1.834 5.868 5.868 0 0 0 11.736 0 2.929 2.929 0 0 0 -.472-1.834h2.41v9.011z"
+                                        fill="#000" transform="translate(-992.8 -142.1)"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <br/>
+                        <p style={estiloA}>Términos y Condiciones: Garantía de 30 días o Gratis</p>
+                        <br/>
+                        <p style={estiloA}>Política de privacidad de Datos</p>
                     </div>
                 </div>
+                <br/>
             </footer>
         </main>
     )
