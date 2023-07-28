@@ -31,11 +31,49 @@ export class EventosGateway {
             .emit(
                 'escucharEventoHola', // Nombre evento que vamos a enviar
                 // a los clientes conectados
-                { // OBJETO A ENVIAR
-                    mensaje: this._eventosService.saludar() + ' ' + message.mensaje
+                {
+                    mensaje: this._eventosService.saludar() + ' ' + message.mensaje;
                 });
         return {mensaje: 'ok'}; // Callback del método "hola"
     }
+    @SubscribeMessage('unirseSala') // Nombre del método "unirseSala"
+    unirseSala(
+        @MessageBody()
+            message: { salaId: string, nombre: string }, // parametros metodo
+        @ConnectedSocket()
+            socket: Socket
+    ) {
+        socket.join(message.salaId); //socket.join
+        const mensajeDeBienvenidaSala = {
+            mensaje:`Bienvenido ${message.nombre} a la sala ${message.salaId}`
+        };
+        socket.broadcast
+            .to(message.salaId)
+            .emit('escucharEventoUnirseSala',
+                mensajeDeBienvenidaSala);
+        return {mensaje: 'ok'}; // Callback del método "hola"
+    }
+    @SubscribeMessage('enviarMensaje') // Nombre del método "enviarMensaje"
+    enviarMensaje(
+        @MessageBody()
+            message: { salaId: string, nombre: string, mensaje: string },
+        @ConnectedSocket()
+            socket: Socket
+    ) {
+        // backend
+        const mensajeSala = {
+            nombre: message.nombre,
+            mensaje: message.mensaje,
+            salaId: message.salaId
+        };
+        socket.broadcast
+            .to(message.salaId) // Sala a la que enviamos el mensaje
+            .emit('escucharEventoUnirseSala', // nombre del evento y datos a enviar
+                mensajeSala);
+        return {mensaje: 'ok'}; // Callback
+    }
 }
+
+
 
 
