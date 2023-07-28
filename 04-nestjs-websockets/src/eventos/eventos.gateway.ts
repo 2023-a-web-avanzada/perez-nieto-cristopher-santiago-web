@@ -6,54 +6,50 @@ import {Server, Socket} from 'socket.io';
 import {EventosService} from "./eventos.service";
 
 @WebSocketGateway(
-    11202, //Puerto donde está escuchando el servidor de websockets
+    11202, // Puerto donde esta escuchando el servidor de websockets
     {
         cors: {
-            origin: '*', // Habilitando la conexión desde cualquier IP
+            origin: '*', // Habilitando la conexion desde cualquier IP
         }
     })
-export class EventosGateway {
-    constructor(private readonly _eventosService: EventosService) {
-    }
-
-    @SubscribeMessage('hola')// Nombre del método para recibir eventos
+export class EventosGateway{
+    @SubscribeMessage('hola') // Nombre del metodo para recibir eventos
     devolverHola(
         @MessageBody()
             message: { mensaje: string },
         @ConnectedSocket()
-            socket: Socket // import {Sercer, Socket} from 'socket.io'
+            socket: Socket // import {Server, Socket} from 'socket.io';
     ) {
         console.log('message', message);
-        socket.broadcast //
-            // broadcast => TODOS LOS CLIENTES CONECTADOS
-            // Y que esten escuchando el evento "escucharEventoHola"
-            // les llegue el mensaje
+        socket.broadcast // broadcast = > TODOS LOS CLIENTES CONECTADOS Y que esten escuchando el evento "escucharEventoHola" les llegue el mensaje
             .emit(
-                'escucharEventoHola', // Nombre evento que vamos a enviar
-                // a los clientes conectados
-                {
-                    mensaje: this._eventosService.saludar() + ' ' + message.mensaje;
+                'escucharEventoHola', //  Nombre evento que vamos a enviar a los clientes conectados
+                { // OBJETO A ENVIAR
+                    mensaje: 'Bienvenido ' + message.mensaje
                 });
-        return {mensaje: 'ok'}; // Callback del método "hola"
+        return {mensaje: 'ok'}; // Callback del metodo "hola"
     }
-    @SubscribeMessage('unirseSala') // Nombre del método "unirseSala"
+
+    @SubscribeMessage('unirseSala') // Nombre metodo "unirseSala"
     unirseSala(
         @MessageBody()
             message: { salaId: string, nombre: string }, // parametros metodo
         @ConnectedSocket()
             socket: Socket
     ) {
-        socket.join(message.salaId); //socket.join
+        socket.join(message.salaId); // socket.join agrupa a los clientes de websockets
+                                     // segun un identificador. Al unirse a una sala
+                                     // podemos escuchar los mensajes de esa sala.
         const mensajeDeBienvenidaSala = {
-            mensaje:`Bienvenido ${message.nombre} a la sala ${message.salaId}`
-        };
+            mensaje: `Bienvenido ${message.nombre} a la sala ${message.salaId}`};
         socket.broadcast
-            .to(message.salaId)
-            .emit('escucharEventoUnirseSala',
-                mensajeDeBienvenidaSala);
-        return {mensaje: 'ok'}; // Callback del método "hola"
+            .to(message.salaId) // Manda el mensaje a un grupo en especifico segun el Idenfiticador
+            .emit('escucharEventoUnirseSala',   // los que ESCUCHAN el evento en este grupo
+                mensajeDeBienvenidaSala);       // reciben ese mensaje
+        return {mensaje: 'ok'}; // Callback del metodo "unirseSala"
     }
-    @SubscribeMessage('enviarMensaje') // Nombre del método "enviarMensaje"
+
+    @SubscribeMessage('enviarMensaje') // nombre del metodo "enviarMensaje"
     enviarMensaje(
         @MessageBody()
             message: { salaId: string, nombre: string, mensaje: string },
@@ -68,12 +64,8 @@ export class EventosGateway {
         };
         socket.broadcast
             .to(message.salaId) // Sala a la que enviamos el mensaje
-            .emit('escucharEventoUnirseSala', // nombre del evento y datos a enviar
-                mensajeSala);
+            .emit('escucharEventoMensajeSala', mensajeSala); // nombre del evento y datos a enviar
         return {mensaje: 'ok'}; // Callback
     }
+
 }
-
-
-
-
