@@ -1,5 +1,5 @@
 import connectMongoDB from "@/libs/mongodb";
-import Album from "@/models/album";
+import Album from "@/models/Album";
 import {NextResponse} from "next/server";
 
 export async function PUT(request, {params}) {
@@ -17,5 +17,5 @@ export async function GET(request, {params}){
     const {id} = params;
     await connectMongoDB();
     const album = await Album.findOne({_id: id});
-    return NextResponse.json({album}, {status: 200});
+    return NextResponse.json(album, {status: 200});
 }
