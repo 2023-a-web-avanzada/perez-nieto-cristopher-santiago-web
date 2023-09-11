@@ -6,7 +6,7 @@ export async function POST(request) {
     const {titulo, autor} = await request.json();
     await connectMongoDB();
     await Album.create({titulo, autor});
-    return NextResponse.json({message: "Album Creado"}, {status: 201});
+    return NextResponse.json({message: "Album Creado"}, {status: 200});
 }
 
 export async function GET() {
