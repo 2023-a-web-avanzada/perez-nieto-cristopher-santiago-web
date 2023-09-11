@@ -3,7 +3,10 @@ import mongoose, {model, mongo, Schema} from "mongoose";
 const albumSchema = new Schema(
     {
         titulo: String,
-        autor: String
+        autor: String,
+        duracion: Number,
+        fecha: Date,
+        esExplicita: String,
     }, {
         timestamps: true,
     }

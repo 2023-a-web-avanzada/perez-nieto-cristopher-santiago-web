@@ -6,10 +6,13 @@ export async function PUT(request, {params}) {
     const {id} = params;
     const {
         nuevoTitulo: titulo,
-        nuevoAutor: autor
+        nuevoAutor: autor,
+        nuevaDuracion: duracion,
+        nuevaFecha: fecha,
+        nuevoEsExplicita: esExplicita,
     } = await request.json();
     await connectMongoDB();
-    await Album.findByIdAndUpdate(id, {titulo, autor});
+    await Album.findByIdAndUpdate(id, {titulo, autor, duracion, fecha, esExplicita});
     return NextResponse.json({message: 'Album actualizado'}, {status: 200});
 }
 

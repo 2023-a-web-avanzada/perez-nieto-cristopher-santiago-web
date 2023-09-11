@@ -19,11 +19,22 @@ export default async function AlbumList() {
     return (
         <>
             {albumes.map(a => (
-                <div className="p-4 border-b-8 border-slate-300 my-3 flex
-             justify-between gap-5 items-start rounded-2xl bg-spotify-dark1 text-spotify-white text-opacity-20">
+                <div className="p-4 border-b-8 my-3 flex
+             justify-between gap-5 items-start rounded-2xl bg-spotify-dark1 text-spotify-white
+             text-opacity-20">
                     <div>
                         <h2 className="font-bold text-2xl text-spotify-white">{a.titulo}</h2>
                         <div className="text-spotify-grey">{a.autor}</div>
+                        <div className="flex flex-row gap-5">
+                            <div className="">≈ {a.duracion}:00 min.</div>
+                            <div className="">|</div>
+                            <div className="">{a.fecha}</div>
+                            <div className="">|</div>
+                            <div className="font-bold text-spotify-white text-opacity-70 bg-spotify-green px-5
+                            bg-opacity-50 rounded">
+                                {a.esExplicita}
+                            </div>
+                        </div>
                     </div>
                     <div className="flex gap-2">
                         <RemoveBtn id={a._id}/>

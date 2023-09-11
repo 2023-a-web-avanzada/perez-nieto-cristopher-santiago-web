@@ -3,9 +3,9 @@ import Album from "@/models/Album";
 import {NextResponse} from "next/server";
 
 export async function POST(request) {
-    const {titulo, autor} = await request.json();
+    const {titulo, autor, duracion, fecha, esExplicita} = await request.json();
     await connectMongoDB();
-    await Album.create({titulo, autor});
+    await Album.create({titulo, autor, duracion, fecha, esExplicita});
     return NextResponse.json({message: "Album Creado"}, {status: 200});
 }
 
